@@ -2,6 +2,7 @@
  * UseCase
  */
 
+import Name from "./Name"
 import UserRepository from "./UserRepository"
 
 export default class GetUser {
@@ -15,7 +16,7 @@ export default class GetUser {
 
 type Output = {
     userId: string,
-    name: string,
+    name: Name,
     age: number,
     job: string
 }

@@ -2,6 +2,7 @@
  * UseCase
  */
 
+import Name from "./Name"
 import UserRepository from "./UserRepository"
 
 export default class CreateUser {
@@ -15,7 +16,7 @@ export default class CreateUser {
 
 type Input = {
     userId: string,
-    name: string,
+    name: Name,
     age: number,
     job: string
 }
