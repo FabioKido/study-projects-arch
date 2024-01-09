@@ -3,18 +3,24 @@
  * Arrange - Act - Assert
  */
 
+import Name from "../src/Name"
 import CreateUser from "../src/CreateUser"
 import GetUser from "../src/GetUser"
 import UserRepositoryMemory from "../src/UserRepositoryMemory"
 
-test('Deve criar um usuário', async function() {
-    const userRepository = new UserRepositoryMemory()
-    const createUser = new CreateUser(userRepository)
-    const getUser = new GetUser(userRepository)
+let createUser: CreateUser
+let getUser: GetUser
 
+beforeEach(function(){
+    const userRepository = new UserRepositoryMemory()
+    createUser = new CreateUser(userRepository)
+    getUser = new GetUser(userRepository)
+})
+
+test('Deve criar um usuário', async function() {
     const input = {
         userId: `${Math.random() * 1000}`,
-        name: 'Fábio',
+        name: new Name('Fábio'),
         age: 29,
         job: 'dev'
     }
