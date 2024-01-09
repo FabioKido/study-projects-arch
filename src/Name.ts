@@ -4,11 +4,10 @@
  */
 
 export default class Name {
-    constructor(readonly name: string) {}
+    readonly value: string
 
-    static validate(): string {
-        if(this.name.length < 2) throw new Error('Nome deve conter mais que duas letras')
-        
-        return this.name
+    constructor(name: string) {
+        if(name.length < 2) throw new Error('Nome deve conter mais que duas letras')
+        this.value = name
     }
 }
